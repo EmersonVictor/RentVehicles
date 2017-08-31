@@ -50,7 +50,3 @@ class Veiculo ():
 	    	if isinstance(reservado, bool):
 	    		return reservado
 	    	raise TypeError("Reservado deve ser um valor booleano")
-
-
-
-
