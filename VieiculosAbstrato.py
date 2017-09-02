@@ -15,7 +15,7 @@ Parâmetros:
 class Veiculo ():
 	def __init__(self, placa, chassi, renavam, autonomia, reservado = False):
 	    self.__placa = __validaPlaca(placa)
-	    self.__chassi = __validaChassi(chassi)
+	    self.__chassi = chassi
 	    self.__renavam = __validaRenavam(renavam)
 	    self.__autonomia = autonomia
 	    self.__reservado = __validaReservado(reservado)
@@ -27,17 +27,6 @@ class Veiculo ():
 	    		return placa
 
 	    	raise ValidationError("Placa {0} não segue o formato".format(placa))
-
-	    # Descrição: O método __validaChassi realiza a validação do chassi, analisando se o string está no formato correto
-	    def __validaChassi(self, chassi):
-	    	for x in range(0, len(chassi)):
-	    		if x == 1 or x == 2 or x == 6 or x == 7 or x == 10:
-	    			if chassi[x].isdigit():
-	    				raise ValidationError("Chassi {0} não segue o formato".format(chassi))
-	    		else: 
-	    			if not(chassi[x].isdigit()):
-	    				raise ValidationError("Chassi {0} não segue o formato".format(chassi))
-	    	return chassi
 
 	    # Descrição: O método __validaRenavam realiza a validação do RENAVAM, analisando se todos os digitos do string são números e se possui o tamanho correto
 	    def __validaRenavam(self, renavam):
