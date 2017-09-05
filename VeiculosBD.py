@@ -29,17 +29,17 @@ class VeiculosBD():
 	# Desrição: Busca todos os veículos disponíveis de um certo tipo
 	def buscarTipo(self, tipo):
 		disponiveis = []
-		if tipo.lower() == "carro"
+		if tipo.lower() == "carro":
 			for veiculo in self.__BancoDados:
 				if type(veiculo) is Carro and veiculo.getReservado() == False:
 					disponiveis.append(veiculo)
 			return disponiveis
-		elif tipo.lower() == "van"
+		elif tipo.lower() == "van":
 			for veiculo in self.__BancoDados:
 				if type(veiculo) is Van and veiculo.getReservado() == False:
 					disponiveis.append(veiculo)
 			return disponiveis
-		elif tipo.lower() == "utilitario"
+		elif tipo.lower() == "utilitario":
 			for veiculo in self.__BancoDados:
 				if type(veiculo) is Utilitario and veiculo.getReservado() == False:
 					disponiveis.append(veiculo)
@@ -50,17 +50,17 @@ class VeiculosBD():
 	# Descrição: Retorna o número de veículos disponíveis de um certo tipo
 	def numVeiculosTipo(self, tipo):
 		disponiveis = 0
-		if tipo.lower() == "carro"
+		if tipo.lower() == "carro":
 			for veiculo in self.__BancoDados:
 				if type(veiculo) is Carro and veiculo.getReservado() == False:
 					disponiveis += 1
 			return disponiveis
-		elif tipo.lower() == "van"
+		elif tipo.lower() == "van":
 			for veiculo in self.__BancoDados:
 				if type(veiculo) is Van and veiculo.getReservado() == False:
 					disponiveis += 1
 			return disponiveis
-		elif tipo.lower() == "utilitario"
+		elif tipo.lower() == "utilitario":
 			for veiculo in self.__BancoDados:
 				if type(veiculo) is Utilitario and veiculo.getReservado() == False:
 					disponiveis += 1
