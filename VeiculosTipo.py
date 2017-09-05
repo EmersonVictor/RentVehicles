@@ -1,5 +1,5 @@
  # -*- coding: utf-8 -*-
-from VeiculosAbstratos import Veiculo
+from VeiculoAbstrato import Veiculo
 
 '''
 Descrição: Classe que guarda os objetos do tipo Carro e é uma classe derivada da Super Classe Veiculo (Classe abstrata) 
@@ -13,6 +13,9 @@ class Carro(Veiculo):
 	def __init__(self, fabricante, modelo, quantidadePortas, autonomia, ano, placa, renavam, chassi, reservado = False):
 		Veiculo.__init__(self, fabricante, modelo, autonomia, ano, placa, renavam, chassi, reservado = False)
 		self.__quantidadePortas = __validaQuantPortas(quantidadePortas)
+
+	def __repr__(self):
+		return "Carro - {0},{1},{2},{3} - {4} - {5},{6},{7} - {8}".format(self.getFabricante, self.getModelo, self.getAno, self.getAutonomia, self.__quantidadePortas, self.getPlaca, self.getRenavam, self.getChassi, self.getReservado  )
 
 	# Descrição: O método realiza a validação da quantidade de portas, analisando se possui 2 ou 4, se não aciona um erro
 	def __validaQuantPortas(self, quantidadePortas):
@@ -35,11 +38,15 @@ class Van(Veiculo):
 		Veiculo.__init__(self, fabricante, modelo, autonomia, ano, placa, renavam, chassi, reservado = False)
 		self.__capacidadePessoas = __validaCapacidadePessoas(capacidadePessoas)
 
-		#Descrição: realiza a validação da capacidade de pessoas, analisando se é um número
-		def __validaCapacidadePessoas(self, capacidade):
-			if capacidade.isdigit():
-				return int(capacidade)
-			raise ValidationError("A capacidade de pessoas deve ser um número")
+	def __repr__(self):
+		return "Van - {0},{1},{2},{3} - {4} - {5},{6},{7} - {8}".format(self.getFabricante, self.getModelo, self.getAno, self.getAutonomia, self.__capacidadePessoas, self.getPlaca, self.getRenavam, self.getChassi, self.getReservado  )
+
+
+	#Descrição: realiza a validação da capacidade de pessoas, analisando se é um número
+	def __validaCapacidadePessoas(self, capacidade):
+		if capacidade.isdigit():
+			return int(capacidade)
+		raise ValidationError("A capacidade de pessoas deve ser um número")
 
 
 
@@ -52,15 +59,18 @@ Utilização: funciona para diferenciar os tipos de veículos de acordo com suas
 Parâmetros:
 	Ela recebe todos os parâmetros que veículo recebe, mais a capacidade da Caçamba
 '''
-class Utilitarios(Veiculo):
+class Utilitario(Veiculo):
 	def __init__(self, fabricante, modelo, capacidadeCacamba, autonomia, ano, placa, renavam, chassi, reservado = False):
 		Veiculo.__init__(self, fabricante, modelo, autonomia, ano, placa, renavam, chassi, reservado = False)
 		self.__capacidadeCacamba = capacidadeCacamba
 
-		#Descrição: realiza a validação da capacidade da Caçamba, analisando se é um número
-		def __validaCapacidadeCacamba(self, capacidade):
-			if capacidade.isdigit():
-				return int(capacidade)
-			raise ValidationError("Capacidade da camçamba deve ser um número")
+	def __repr__(self):
+		return "Utilitário - {0},{1},{2},{3} - {4} - {5},{6},{7} - {8}".format(self.getFabricante, self.getModelo, self.getAno, self.getAutonomia, self.__capacidadeCacamba, self.getPlaca, self.getRenavam, self.getChassi, self.getReservado)
+
+	#Descrição: realiza a validação da capacidade da Caçamba, analisando se é um número
+	def __validaCapacidadeCacamba(self, capacidade):
+		if capacidade.isdigit():
+			return int(capacidade)
+		raise ValidationError("Capacidade da caçamba deve ser um número")
 		
 		

@@ -5,7 +5,7 @@ Descrição, Utilização e parâmetro
 '''
 
 class Controle():
-
+	
 	# Descrição: Recupera o número de veículos não reservados
 	def veiculosDisponiveis():
 
