@@ -2,6 +2,14 @@
 from VeiculosTipo import *
 from VeiculosAbstrato import Veiculo
 
+
+'''
+Descrição: A classe VeiculosBD é utilizada como um banco de dados para guardar as informações dos carros armazenados
+
+Utilização: A classe é utilizada pela classe controle para realizar algumas operações com o banco de dados através de seus métodos
+
+Parâmetro: A classe não recebe nenhum parâmetro, apenas inicializa com o atributo privado BandoDados, que é do tipo lista
+'''
 class VeiculosBD():
 	def __init__(self):
 		self.__BancoDados = []
@@ -47,6 +55,13 @@ class VeiculosBD():
 		else:
 			return LookupError("Não existe veículo desse tipo")
 
+	# Descrição: Retorna o número de veículos disponíveis
+	def numVeiculos(self):
+		numVeiculos = 0
+		for veiculo in self.__BancoDados:
+			if veiculo.getReservado() == False:
+				numVeiculos += 1
+
 	# Descrição: Retorna o número de veículos disponíveis de um certo tipo
 	def numVeiculosTipo(self, tipo):
 		disponiveis = 0
@@ -69,16 +84,25 @@ class VeiculosBD():
 			return LookupError("Não existe veículo desse tipo")
 
 
-	# Descrição: Cancela a reserva de um certo veículo pela placa
-	def cancelarReserva(self, placa):
-		for veiculo in self.__BancoDados:
-			if veiculo.getPlaca() == placa:
-				if veiculo.getReservado() == True:
+	# Descrição: Cancela a reserva de um certo veículo pelo chassi, placa ou RENAVAM
+	def cancelarReserva(self, key):
+		veiculo = self.procurar(key)
+		if veiculo.getReservado() == True:
 					veiculo.mudaReserva()
 					return "Reserva cancelada"
 				else:
 					return "Veiculo não está reservado"
-		return LookupError("Não existe veículo com placa {0}".format(placa))
+		return LookupError("Não existe veículo com atributo {0}".format(placa))
+
+	# Descrição: Faz a reserva de um certo veículo pelo chassi, placa ou RENAVAM
+	def reservar(self, key):
+		veiculo = self.procurar(key)
+		if veiculo.getReservado() == False:
+					veiculo.mudaReserva()
+					return "Veículo reservado com sucesso"
+				else:
+					return "Veículo já possui reserva"
+		return LookupError("Não existe veículo com atributo {0}".format(placa))
 
 
 
