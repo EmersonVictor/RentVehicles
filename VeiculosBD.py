@@ -52,7 +52,7 @@ class VeiculosBD():
                     disponiveis.append(veiculo)
             return disponiveis
         else:
-            raise LookupError("Não existe veículo desse tipo")
+            raise LookupError("Não existe veículo do tipo {0}".format(tipo))
 
     # Descrição: Retorna o número de veículos disponíveis
     def numVeiculos(self):
@@ -81,7 +81,7 @@ class VeiculosBD():
                     disponiveis += 1
             return disponiveis
         else:
-            raise LookupError("Não existe veículo desse tipo")
+            raise LookupError("Não existe veículo do tipo {0}".format(tipo))
 
 
     # Descrição: Cancela a reserva de um certo veículo pelo chassi, placa ou RENAVAM
@@ -92,7 +92,7 @@ class VeiculosBD():
             return "Reserva cancelada"
         else:
             return "Veiculo não está reservado"
-        raise LookupError("Não existe veículo com atributo {0}".format(placa))
+        raise LookupError("Não existe veículo com atributo {0}".format(key))
 
     # Descrição: Faz a reserva de um certo veículo pelo chassi, placa ou RENAVAM
     def reservar(self, key):
@@ -102,7 +102,7 @@ class VeiculosBD():
             return "Veículo reservado com sucesso"
         else:
             return "Veículo já possui reserva"
-        raise LookupError("Não existe veículo com atributo {0}".format(placa))
+        raise LookupError("Não existe veículo com atributo {0}".format(key))
 
     # Descrição: Devolve uma lista de listas com as informações de todos os veículos em string
     def listaVeiculos(self):

@@ -31,7 +31,7 @@ class Veiculo ():
     def __validaPlaca(self, placa):
         if not (placa[0:3].isdigit()) and placa[4:7].isdigit() and len(placa) == 8:
             return placa
-        raise ValueError("Placa {0} não segue o formato".format(placa))
+        raise ValueError("Placa {0} não segue o formato correto".format(placa))
 
     # Descrição: O método __validaRenavam realiza a validação do RENAVAM, analisando se todos os digitos do string são números e se possui o tamanho correto
     def __validaRenavam(self, renavam):
@@ -47,13 +47,13 @@ class Veiculo ():
                         return True
         elif reservado.lower() == "false":
                         return False
-        raise TypeError("Reservado deve ser um valor booleano")
+        raise TypeError("Reservado aceita apenas os valores True ou False")
 
     # Descrição: O método __validaAno realiza a validação do ano recebido, analisando se é um inteiro formado por 4 digitos
     def __validaAno(self, ano):
         if ano.isdigit() and len(str(ano)) == 4:
             return int(ano)
-        raise ValueError("{0} não segue o formato correto".format(ano))
+        raise ValueError("{0} não segue o formato de ano correto".format(ano))
 
     # Descrição: O método realiza a troca do valor booleano presente na variável reservado
     def mudaReserva(self):
