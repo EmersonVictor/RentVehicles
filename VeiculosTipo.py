@@ -15,7 +15,7 @@ class Carro(Veiculo):
         self.__quantidadePortas = self.__validaQuantPortas(quantidadePortas)
 
     def __repr__(self):
-        return "carro\t{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}".format(self.getFabricante(), self.getModelo(), self.getAno(), self.getAutonomia(), self.__quantidadePortas, self.getPlaca(), self.getRenavam(), self.getChassi(), self.getReservado())
+        return "carro\t{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}".format(self.getFabricante(), self.getModelo(), self.getAno(), self.__quantidadePortas, self.getAutonomia(), self.getPlaca(), self.getRenavam(), self.getChassi(), self.getReservado())
 
     # Descrição: O método realiza a validação da quantidade de portas, analisando se possui 2 ou 4, se não aciona um erro
     def __validaQuantPortas(self, quantidadePortas):
@@ -38,7 +38,7 @@ class Van(Veiculo):
         self.__capacidadePessoas = self.__validaCapacidadePessoas(capacidadePessoas)
 
     def __repr__(self):
-        return "van\t{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}".format(self.getFabricante(), self.getModelo(), self.getAno(), self.getAutonomia(), self.__capacidadePessoas, self.getPlaca(), self.getRenavam(), self.getChassi(), self.getReservado())
+        return "van\t{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}".format(self.getFabricante(), self.getModelo(), self.getAno(), self.__capacidadePessoas, self.getAutonomia(), self.getPlaca(), self.getRenavam(), self.getChassi(), self.getReservado())
 
 
     #Descrição: realiza a validação da capacidade de pessoas, analisando se é um número
@@ -64,7 +64,7 @@ class Utilitario(Veiculo):
         self.__capacidadeCacamba = self.__validaCapacidadeCacamba(capacidadeCacamba)
 
     def __repr__(self):
-        return "ute\t{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}".format(self.getFabricante(), self.getModelo(), self.getAno(), self.getAutonomia(), self.__capacidadeCacamba, self.getPlaca(), self.getRenavam(), self.getChassi(), self.getReservado())
+        return "ute\t{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}".format(self.getFabricante(), self.getModelo(), self.getAno(),self.__capacidadeCacamba, self.getAutonomia(), self.getPlaca(), self.getRenavam(), self.getChassi(), self.getReservado())
 
     #Descrição: realiza a validação da capacidade da Caçamba, analisando se é um número
     def __validaCapacidadeCacamba(self, capacidade):
